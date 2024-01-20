@@ -5,7 +5,7 @@ PORT = 1234
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((HOST, PORT))
-client_socket.send(b"Testing 123..")
-data = client_socket.recv(1024)
+client_socket.send(input().encode("utf-8"))
 
-print(f"Recieved {data!r}")
+message = client_socket.recv(1024)
+print(f"From Server: {message.decode()}")

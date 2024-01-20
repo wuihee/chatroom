@@ -8,5 +8,7 @@ server_socket.bind((HOST, PORT))
 server_socket.listen()
 
 client_socket, address = server_socket.accept()
-print(f"Accepted connection from {address}.")
-client_socket.send(bytes("Message received.", "utf-8"))
+print(f"Accepted connection from {address[0]}.")
+
+message = client_socket.recv(1024)
+client_socket.send(f"{message.decode()}".encode("utf-8"))
