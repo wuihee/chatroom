@@ -27,7 +27,7 @@ def accept_connection(server_socket: socket.socket) -> None:
     selector.register(client_socket, selectors.EVENT_READ)
 
 
-def service_connection(key: selectors.SelectorKey, mask: int) -> None:
+def receive_message(key: selectors.SelectorKey, mask: int) -> None:
     """
     Recieve a message from an existing connection.
 
@@ -51,7 +51,7 @@ try:
             if key.fileobj is server_socket:
                 accept_connection(server_socket)
             else:
-                service_connection(key, mask)
+                receive_message(key, mask)
 except KeyboardInterrupt:
     print("Server is shutting down.")
 finally:
