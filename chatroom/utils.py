@@ -1,11 +1,11 @@
 import socket
 
-from .constants import HEADER_SIZE
+from constants import HEADER_SIZE
 
 
 def send_message(sock: socket.socket, message: str) -> None:
     """
-    Send a message to socket.
+    Send a message through socket.
 
     Args:
         message (str): Message to be sent.
