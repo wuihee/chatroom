@@ -19,3 +19,5 @@ python ./chatroom/client.py
 ```
 
 Each client should ask for a username. After that simply send messages into the terminal.
+
+![Chatroom Demo](./demo.png)
